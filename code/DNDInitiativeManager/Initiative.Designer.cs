@@ -928,11 +928,11 @@ namespace DNDInitiativeManager {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Type {
                 get {
-                    try {
-                        return ((string)(this[this.tableInitiative.TypeColumn]));
+                    if (this.IsTypeNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Type\' in table \'Initiative\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableInitiative.TypeColumn]));
                     }
                 }
                 set {
