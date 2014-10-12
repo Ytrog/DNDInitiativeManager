@@ -67,7 +67,11 @@ namespace DNDInitiativeManager
             }
 
             // sync new members
-            
+            var newMembers = party.Where(p => !filteredInitiative.Select(i => i.Name.Trim()).Contains(p.Name.Trim()));
+            foreach (var member in newMembers)
+            {
+                _initiative.AddInitiativeRow(member.Name, 0, member.Modifier, InitiativeType.PartyMember.ToString());
+            }
         }
 
         private void SortTable()
