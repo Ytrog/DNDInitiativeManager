@@ -142,7 +142,7 @@
             // initiativeDataGridViewTextBoxColumn
             // 
             this.initiativeDataGridViewTextBoxColumn.DataPropertyName = "Initiative";
-            this.initiativeDataGridViewTextBoxColumn.HeaderText = "Initiative";
+            this.initiativeDataGridViewTextBoxColumn.HeaderText = "Total initiative";
             this.initiativeDataGridViewTextBoxColumn.Name = "initiativeDataGridViewTextBoxColumn";
             // 
             // modifierDataGridViewTextBoxColumn
