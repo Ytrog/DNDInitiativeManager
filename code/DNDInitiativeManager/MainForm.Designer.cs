@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.newSheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,12 +106,13 @@
             this.dgInitiative.Name = "dgInitiative";
             this.dgInitiative.Size = new System.Drawing.Size(683, 386);
             this.dgInitiative.TabIndex = 1;
+            this.dgInitiative.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgInitiative_UserDeletingRow);
             // 
             // typeDataGridViewTextBoxColumn
             // 
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            dataGridViewCellStyle1.NullValue = "NPC";
-            this.typeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.NullValue = "NPC";
+            this.typeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
             this.typeDataGridViewTextBoxColumn.Items.AddRange(new object[] {
             "PartyMember",

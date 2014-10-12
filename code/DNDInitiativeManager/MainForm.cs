@@ -84,5 +84,17 @@ namespace DNDInitiativeManager
             AboutBox aboutBox = new AboutBox();
             aboutBox.ShowDialog(this);
         }
+
+        private void dgInitiative_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            int index = e.Row.Index;
+            var row =  (Initiative.InitiativeRow) _initiative.Rows[index];
+            string rowType = row.Type;
+            if (rowType.Equals(InitiativeType.PartyMember.ToString()))
+            {
+                MessageBox.Show(this, "Please remove a party member through the party manager", "You tried to remove a party member", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                e.Cancel = true;
+            }
+        }
     }
 }
