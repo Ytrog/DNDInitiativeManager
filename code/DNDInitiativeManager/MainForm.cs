@@ -52,6 +52,22 @@ namespace DNDInitiativeManager
         {
             PartyManagerForm partyManagerForm = new PartyManagerForm();
             partyManagerForm.ShowDialog(this);
+            SyncParty();
+        }
+
+        private void SyncParty()
+        {
+            // sync initiative
+            var filteredInitiative = _initiative.Where(i => i.Type.Equals(InitiativeType.PartyMember.ToString()));
+            var party = PartyLoader.Party;
+
+            foreach (var item in filteredInitiative)
+            {
+                item.Modifier = party.Single(p => p.Name.Trim().Equals(item.Name.Trim())).Modifier;
+            }
+
+            // sync new members
+            
         }
 
         private void SortTable()
