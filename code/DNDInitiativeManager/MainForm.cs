@@ -63,7 +63,11 @@ namespace DNDInitiativeManager
 
             foreach (var item in filteredInitiative)
             {
-                item.Modifier = party.Single(p => p.Name.Trim().Equals(item.Name.Trim())).Modifier;
+                var changed = party.SingleOrDefault(p => p.Name.Trim().Equals(item.Name.Trim()));
+                if (changed != null)
+                {
+                    item.Modifier = changed.Modifier;
+                }
             }
 
             // sync new members
@@ -71,6 +75,14 @@ namespace DNDInitiativeManager
             foreach (var member in newMembers)
             {
                 _initiative.AddInitiativeRow(member.Name, 0, member.Modifier, InitiativeType.PartyMember.ToString());
+            }
+
+            // sync deletes
+            var deleted = filteredInitiative.Where(i => !party.Any(p => p.Name.Trim().Equals(i.Name.Trim()))).ToList();
+
+            foreach (var item in deleted)
+            {
+                item.Delete();
             }
         }
 
