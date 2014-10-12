@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.newSheetToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgInitiative = new System.Windows.Forms.DataGridView();
+            this.initiativeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.initiative = new DNDInitiativeManager.Initiative();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.initiativeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modifierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.initiativeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.initiative = new DNDInitiativeManager.Initiative();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgInitiative)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.initiativeBindingSource)).BeginInit();
@@ -108,16 +108,27 @@
             this.dgInitiative.TabIndex = 1;
             this.dgInitiative.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgInitiative_UserDeletingRow);
             // 
+            // initiativeBindingSource
+            // 
+            this.initiativeBindingSource.DataMember = "Initiative";
+            this.initiativeBindingSource.DataSource = this.initiative;
+            // 
+            // initiative
+            // 
+            this.initiative.DataSetName = "Initiative";
+            this.initiative.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // typeDataGridViewTextBoxColumn
             // 
             this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            dataGridViewCellStyle2.NullValue = "NPC";
-            this.typeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.NullValue = "NPC";
+            this.typeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
             this.typeDataGridViewTextBoxColumn.Items.AddRange(new object[] {
             "PartyMember",
             "NPC"});
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
             this.typeDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.typeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
@@ -139,16 +150,6 @@
             this.modifierDataGridViewTextBoxColumn.DataPropertyName = "Modifier";
             this.modifierDataGridViewTextBoxColumn.HeaderText = "Modifier";
             this.modifierDataGridViewTextBoxColumn.Name = "modifierDataGridViewTextBoxColumn";
-            // 
-            // initiativeBindingSource
-            // 
-            this.initiativeBindingSource.DataMember = "Initiative";
-            this.initiativeBindingSource.DataSource = this.initiative;
-            // 
-            // initiative
-            // 
-            this.initiative.DataSetName = "Initiative";
-            this.initiative.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // MainForm
             // 
@@ -180,11 +181,11 @@
         private Initiative initiative;
         private System.Windows.Forms.BindingSource initiativeBindingSource;
         private System.Windows.Forms.ToolStripMenuItem newSheetToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.DataGridViewComboBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn initiativeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn modifierDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 
