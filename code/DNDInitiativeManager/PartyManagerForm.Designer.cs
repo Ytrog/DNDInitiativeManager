@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.btnSave = new System.Windows.Forms.Button();
             this.dgParty = new System.Windows.Forms.DataGridView();
-            this.initiative = new DNDInitiativeManager.Initiative();
-            this.partyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modifierDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partyBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.initiative = new DNDInitiativeManager.Initiative();
             ((System.ComponentModel.ISupportInitialize)(this.dgParty)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.initiative)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partyBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.initiative)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -52,6 +52,9 @@
             // 
             // dgParty
             // 
+            this.dgParty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgParty.AutoGenerateColumns = false;
             this.dgParty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgParty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -62,16 +65,6 @@
             this.dgParty.Name = "dgParty";
             this.dgParty.Size = new System.Drawing.Size(654, 343);
             this.dgParty.TabIndex = 1;
-            // 
-            // initiative
-            // 
-            this.initiative.DataSetName = "Initiative";
-            this.initiative.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // partyBindingSource
-            // 
-            this.partyBindingSource.DataMember = "Party";
-            this.partyBindingSource.DataSource = this.initiative;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -86,6 +79,16 @@
             this.modifierDataGridViewTextBoxColumn.HeaderText = "Modifier";
             this.modifierDataGridViewTextBoxColumn.Name = "modifierDataGridViewTextBoxColumn";
             // 
+            // partyBindingSource
+            // 
+            this.partyBindingSource.DataMember = "Party";
+            this.partyBindingSource.DataSource = this.initiative;
+            // 
+            // initiative
+            // 
+            this.initiative.DataSetName = "Initiative";
+            this.initiative.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // PartyManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,8 +100,8 @@
             this.Text = "Party Manager";
             this.Load += new System.EventHandler(this.PartyManagerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgParty)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.initiative)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partyBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.initiative)).EndInit();
             this.ResumeLayout(false);
 
         }
